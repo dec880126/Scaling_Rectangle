@@ -107,20 +107,19 @@ def main():
 
     # ----------start the transformation----------
     for point, vector in zip(pointList, vectorList):
-        point.move_by(vector)
-
-    print("after transformation")
-    print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
+        point.move_by(vector)    
 
     # ----------Post-graphing----------
     for point in pointList:
         plt.scatter(point.x, point.y, color = 'red')
-        
+
+    print("after transformation")
+    print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
+    plt.plot()
     plt.title("X-Y Figure")
     plt.xlabel("x-axis")
     plt.ylabel("y-axis")
     plt.show()
-        
     
 if __name__ == '__main__':
     main()
