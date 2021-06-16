@@ -10,7 +10,7 @@ class Point(object):
     def distance(self, target):
         """
         type target: Point
-        rtype: int
+        rtype: float
         """
         len_x = self.x - target.x
         len_y = self.y - target.y
