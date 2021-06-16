@@ -25,7 +25,7 @@ class Point(object):
         dy = self.y - target.y
         return [dx, dy]
         
-    def move_by(self, vector: list):
+    def move_by(self, vector):
         """
         type vector: list
         """
