@@ -83,13 +83,12 @@ def main():
     b = Point(3, 4)
     c = Point(-3, -1)
     d = Point(4, 1)
+    pointList = [a, b, c, d]
     print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
 
     # ----------Pre-graphing----------
-    plt.scatter(a.x, a.y, color = 'blue')
-    plt.scatter(b.x, b.y, color = 'blue')
-    plt.scatter(c.x, c.y, color = 'blue')
-    plt.scatter(d.x, d.y, color = 'blue')
+    for point in pointList:
+        plt.scatter(point.x, point.y, color = 'blue')
 
     # ----------Calculate the distance----------
     ab = ba = a.distance(b)
@@ -114,10 +113,8 @@ def main():
     print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
 
     # ----------Post-graphing----------
-    plt.scatter(a.x, a.y, color = 'red')
-    plt.scatter(b.x, b.y, color = 'red')
-    plt.scatter(c.x, c.y, color = 'red')
-    plt.scatter(d.x, d.y, color = 'red')
+    for point in pointList:
+        plt.scatter(point.x, point.y, color = 'red')
     plt.title("X-Y Figure")
     plt.xlabel("x-axis")
     plt.ylabel("y-axis")
