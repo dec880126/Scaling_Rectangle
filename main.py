@@ -103,12 +103,12 @@ def main():
     v_b = vector_process(b, a, c, d, ba, bc, bd)
     v_c = vector_process(c, a, b, d, ca, cb, cd)
     v_d = vector_process(d, a, b, c, da, db, dc)
+    vectorList = [v_a, v_b, v_c, v_d]
 
     # ----------start the transformation----------
-    a.move_by(v_a)
-    b.move_by(v_b)
-    c.move_by(v_c)
-    d.move_by(v_d)
+    for point, vector in zip(pointList, vectorList):
+        point.move_by(vector)
+        
     print("after transformation")
     print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
 
