@@ -53,6 +53,7 @@ def vector_normalize(vector):
     length = sqrt(vector[0] ** 2 + vector[1] ** 2)
     return np.array(vector)/length
 
+
 def vector_process(pa, pb, pc, pd, d1, d2, d3):
     """
     type a, b, c, d: Point
@@ -83,6 +84,10 @@ def main():
     b = Point(3, 4)
     c = Point(-3, -1)
     d = Point(4, 1)
+    # a = Point(-4, 20)
+    # b = Point(13, 24)
+    # c = Point(-30, -1)
+    # d = Point(4, 12)
     pointList = [a, b, c, d]
     print(f"a = {a.show()}, b = {b.show()}, c = {c.show()}, d = {d.show()}")
 
@@ -91,18 +96,18 @@ def main():
         plt.scatter(point.x, point.y, color = 'blue')
 
     # ----------Calculate the distance----------
-    ab = ba = a.distance(b)
-    ac = ca = a.distance(c)
-    ad = da = a.distance(d)
-    bc = cb = b.distance(c)
-    bd = db = b.distance(d)
-    cd = dc = c.distance(d)
+    ab = ac = ad = bc = bd = cd = 0
+    distence = [ab, ac, ad, bc, bd, cd]
+    p1List = [a, a, a, b, b, c]
+    p2List = [b, c, d, c, d, d]
+    for dis, p1, p2 in zip(distence, p1List, p2List):
+        dis = p1.distance(p2)
 
     # ----------vector processing----------
-    v_a = vector_process(a, b, c, d, ab, ac, ad)
-    v_b = vector_process(b, a, c, d, ba, bc, bd)
-    v_c = vector_process(c, a, b, d, ca, cb, cd)
-    v_d = vector_process(d, a, b, c, da, db, dc)
+    v_a = vector_process(a, b, c, d, distence[0], distence[1], distence[3])
+    v_b = vector_process(b, a, c, d, distence[0], distence[3], distence[4])
+    v_c = vector_process(c, a, b, d, distence[2], distence[3], distence[5])
+    v_d = vector_process(d, a, b, c, distence[2], distence[4], distence[5])
     vectorList = [v_a, v_b, v_c, v_d]
 
     # ----------start the transformation----------
